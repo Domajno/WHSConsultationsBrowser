@@ -142,3 +142,26 @@ body {
 span.pdf {
 	color: #CFCFCF;
 }
+span.icon {
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 28px;
+	height: 28px;
+	margin: 6px;
+	display: inline-block;
+}
+span.in {
+	background-image: url(img/in.png);
+}
+span.out {
+	background-image: url(img/out.png);
+}
+span.group {
+	background-image: url(img/group.png);
+}
+span.doc {
+	background-image: url(img/doc.png);
+}
+span.regio {
+	background-image: url(img/regio.png);
+}
