@@ -92,7 +92,6 @@ window.onload = function () {
 				
 				clearResults();
 				d3.select('#results').classed('active', true);
-				//TODO scroll #results to the top
 
 				var doc = json['docs'][queryResult['doc']], replacement;
 
@@ -158,6 +157,10 @@ window.onload = function () {
 					.style('opacity', 1);
 
 				}
+
+				// Scroll to the top
+				setTimeout(function(){ d3.select('#results').node().scrollTop = 0; }, 160);
+
 			}).style('background-color', function(queryResult) { 
 				return 'rgba(0, 173, 239, ' + scale(queryResult['count']) + ')';
 			});
@@ -233,7 +236,7 @@ window.onload = function () {
 			return out;
 		};
 		var rows = d3.select('#tiles').select('table').selectAll('tr').data(dummy(20)).enter().append('tr');
-		rows.selectAll('td').data(dummy(40)).enter().append('td').classed('a', function(d,i){return i>25 && i < 39});
+		rows.selectAll('td').data(dummy(38)).enter().append('td').classed('a', function(d,i){return i>23 && i < 37});
 
 
 		// Intro display

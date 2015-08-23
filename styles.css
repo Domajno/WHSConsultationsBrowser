@@ -83,7 +83,7 @@ body {
 }
 #tiles td {
 	height: calc(100vh/20 - 2px);
-	width: calc(100vw/40);
+	width: calc(100vw/38);
 	background-color: #f2f2f2;
 	opacity: 0.5;
 	border-radius: 2px;
@@ -106,11 +106,11 @@ body {
 
 /* Results */
 #results {
-	width: 35vw;
+	width: 33vw;
 	position: absolute;
 	z-index: 1;
 	height: 100vh;
-	margin-left: 6em;
+	margin-left: 5em;
 	overflow-y: auto;
 	text-align: justify;
 	z-index: -10;
