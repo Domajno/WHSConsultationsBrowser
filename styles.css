@@ -1,0 +1,142 @@
+body {
+	background-color: #f2f2f2;
+	overflow: hidden;
+	margin: 0;
+    color: #4d4d4d;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+#labels {
+	float:left;
+	height: 100vh;
+	overflow-y: scroll;
+	text-align: left;
+	padding-left: 2em;
+}
+#labels div {
+	position: relative;
+	width: 500px;
+}
+#labels div, #labels span, #labels li {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    opacity: 0.7;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 0.7em;
+
+    transition: all .2s ease-in-out;
+}
+#labels span:hover, #labels li:hover {
+	opacity: 0.9;
+	cursor: pointer;
+}
+#labels ul {
+	position: absolute;
+	top: 0;
+	left: 200px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: all .2s ease-in-out;
+}
+
+
+/* Active class interactions */
+#labels div.active ul {
+	opacity: 1;
+	pointer-events: all;
+}
+#labels.active div:not(.active) {
+	opacity: 0.1;
+	z-index: -10;
+}
+#labels ul.hyperactive li {
+	opacity: 0.1;
+}
+#labels ul.hyperactive li.hyperactive {
+	opacity: 1;
+	color: #00adef;
+}
+#labels.active.hyperactive span {
+	opacity: 1;
+	color: #00adef;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Tiles */
+#tiles {
+	height: 100vh;
+	float: right;
+}
+#tiles td {
+	height: calc(100vh/20 - 2px);
+	width: calc(100vw/40);
+	background-color: #f2f2f2;
+	opacity: 0.5;
+	border-radius: 2px;
+
+  transition: all 1.25s ease-in-out;
+}
+#tiles td:hover {
+	background-color: #FAFAFA;
+	opacity: 0.8;
+	transition: border-radius 3s ease-in-out, opacity .05s ease-in-out;
+}
+#tiles td.active {
+	background-color: #00adef;
+}
+#tiles td.active:hover {
+	border-radius: 10px;
+}
+
+
+/* Results */
+#results {
+	width: 30vw;
+	position: absolute;
+	z-index: 1;
+	height: 100vh;
+	margin-left: 100px;
+	overflow-y: scroll;
+	text-align: justify;
+	z-index: -10;
+}
+#results.active {
+	z-index: 10;
+}
+#results h2 {
+	text-transform: uppercase;
+	font-size: 22px;
+	text-align: left;
+}
+#results h3 {
+	text-transform: uppercase;
+	font-size: 14px;
+	cursor: pointer;
+}
+#results p {
+	font-size: 14px;
+}
+#results span.s {
+	background-color: #00adef;
+	color: #f2f2f2;
+}
+#results h3.hidden + p {
+	display: none;
+}
+span.pdf {
+	color: #CFCFCF;
+}
