@@ -8,7 +8,7 @@ body {
 #labels {
 	float:left;
 	height: 100vh;
-	overflow-y: scroll;
+	overflow: auto;
 	text-align: left;
 	padding-left: 2.5em;
 }
@@ -100,6 +100,7 @@ body {
 }
 #tiles td.active:hover {
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 
@@ -110,7 +111,7 @@ body {
 	z-index: 1;
 	height: 100vh;
 	margin-left: 6em;
-	overflow-y: scroll;
+	overflow-y: auto;
 	text-align: justify;
 	z-index: -10;
 }
@@ -120,9 +121,11 @@ body {
 #results h2 a {
 	text-transform: uppercase;
 	font-size: 22px;
-	text-align: left;
 	text-decoration: none;
     color: #4d4d4d;
+}
+#results h2 {
+    text-align: center;
 }
 #results h3 {
 	text-transform: uppercase;
@@ -138,6 +141,10 @@ body {
 }
 #results h3.hidden + p {
 	display: none;
+}
+#results div {
+	text-align: center;
+	margin-bottom: 2em;
 }
 span.pdf {
 	color: #CFCFCF;

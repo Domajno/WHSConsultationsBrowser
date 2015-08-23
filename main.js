@@ -94,7 +94,7 @@ window.onload = function () {
 				//TODO scroll #results to the top
 
 				var doc = json['docs'][queryResult['doc']], replacement;
-console.log(queryResult['doc']);
+
 				// Add title
 				d3.select('#results')
 				.append('h2')
