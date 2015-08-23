@@ -10,7 +10,7 @@ body {
 	height: 100vh;
 	overflow-y: scroll;
 	text-align: left;
-	padding-left: 2em;
+	padding-left: 2.5em;
 }
 #labels div {
 	position: relative;
@@ -25,7 +25,7 @@ body {
     user-select: none;
 
     opacity: 0.7;
-    font-size: 16px;
+    font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 3px;
     padding: 0.7em;
@@ -39,7 +39,7 @@ body {
 #labels ul {
 	position: absolute;
 	top: 0;
-	left: 200px;
+	left: 240px;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -105,11 +105,11 @@ body {
 
 /* Results */
 #results {
-	width: 30vw;
+	width: 35vw;
 	position: absolute;
 	z-index: 1;
 	height: 100vh;
-	margin-left: 100px;
+	margin-left: 6em;
 	overflow-y: scroll;
 	text-align: justify;
 	z-index: -10;
@@ -117,10 +117,12 @@ body {
 #results.active {
 	z-index: 10;
 }
-#results h2 {
+#results h2 a {
 	text-transform: uppercase;
 	font-size: 22px;
 	text-align: left;
+	text-decoration: none;
+    color: #4d4d4d;
 }
 #results h3 {
 	text-transform: uppercase;
