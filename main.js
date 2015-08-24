@@ -24,10 +24,38 @@ window.onload = function () {
 	};
 
 	var displayIntroImage = function() {
-		//TODO dislay UN from blue tiles
+		var rows = d3.selectAll('#tiles tr')[0],
+			row_whs = d3.select(rows[4]).selectAll('td')[0],
+			row_consultations = d3.select(rows[6]).selectAll('td')[0],
+			row_browser = d3.select(rows[8]).selectAll('td')[0],
+			whs = 'WHS',
+			consultations = 'Consultations',
+			browser = 'Browser';
 
-		// Add twitter cell
-		d3.select(d3.select(d3.selectAll('#tiles tr')[0][18]).selectAll('td')[0][37]).attr('id', 'tw');
+		d3.selectAll(row_whs.slice(10,10 + whs.length))
+		.data(whs.split(''))
+		.classed('intro', true)
+		.text(function(l) {
+			return l;
+		});
+
+		d3.selectAll(row_consultations.slice(12,12	+consultations.length))
+		.data(consultations.split(''))
+		.classed('intro', true)
+		.text(function(l) {
+			return l;
+		});
+
+		d3.selectAll(row_browser.slice(22,22+browser.length))
+		.data(browser.split(''))
+		.classed('intro', true)
+		.text(function(l) {
+			return l;
+		});
+	};
+
+	var clearIntro = function() {
+		d3.selectAll('#tiles td.intro').classed('intro', false).text('');
 	};
 
 	var queryDocuments = function(query, documents) {

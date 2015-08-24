@@ -87,6 +87,7 @@ body {
 	background-color: #f2f2f2;
 	opacity: 0.5;
 	border-radius: 2px;
+	color: #f2f2f2;
 
   transition: all 1.25s ease-in-out;
 }
@@ -101,6 +102,11 @@ body {
 #tiles td.active:hover {
 	border-radius: 10px;
 	cursor: pointer;
+}
+#tiles td.intro {
+	background-color: #00adef;
+	text-align: center;
+	font-weight: bold;
 }
 
 
