@@ -1,5 +1,24 @@
 window.onload = function () {
 
+	// Animate preloader
+	var preloader = 0,
+		interval = setInterval(function(a){ 
+			d3.selectAll('#intro td').classed('active', false);
+			d3.select(d3.selectAll('#intro td')[0][preloader % 5]).classed('active', true);
+			preloader += 1;
+		}, 400);
+
+	var stopPreloader = function() {
+		clearInterval(interval);
+		d3.selectAll('#intro td').classed('active', true);
+		d3.selectAll('#intro').classed('active', true);
+		d3.selectAll('#intro *:not(img), #intro').on('click', function() {
+			d3.select('#intro').transition().duration(600).style('opacity', 0).each('end', function(){
+				d3.select(this).style('display', 'none');
+			})
+		});
+	};
+
 	// Will fade out and remove all content of results div
 	var clearResults = function(deactivate) {
 		d3.selectAll('#results h2, #results h3, #results p, #results div')
@@ -21,41 +40,6 @@ window.onload = function () {
 		.classed('out', false)
 		.style('background-color', null)
 		.on('click', null);
-	};
-
-	var displayIntroImage = function() {
-		var rows = d3.selectAll('#tiles tr')[0],
-			row_whs = d3.select(rows[4]).selectAll('td')[0],
-			row_consultations = d3.select(rows[6]).selectAll('td')[0],
-			row_browser = d3.select(rows[8]).selectAll('td')[0],
-			whs = 'WHS',
-			consultations = 'Consultations',
-			browser = 'Browser';
-
-		d3.selectAll(row_whs.slice(10,10 + whs.length))
-		.data(whs.split(''))
-		.classed('intro', true)
-		.text(function(l) {
-			return l;
-		});
-
-		d3.selectAll(row_consultations.slice(12,12	+consultations.length))
-		.data(consultations.split(''))
-		.classed('intro', true)
-		.text(function(l) {
-			return l;
-		});
-
-		d3.selectAll(row_browser.slice(22,22+browser.length))
-		.data(browser.split(''))
-		.classed('intro', true)
-		.text(function(l) {
-			return l;
-		});
-	};
-
-	var clearIntro = function() {
-		d3.selectAll('#tiles td.intro').classed('intro', false).text('');
 	};
 
 	var queryDocuments = function(query, documents) {
@@ -267,8 +251,6 @@ window.onload = function () {
 		rows.selectAll('td').data(dummy(38)).enter().append('td').classed('a', function(d,i){return i>23 && i < 37});
 
 
-		// Intro display
-		displayIntroImage();
-
+		stopPreloader();
 	});
 }
