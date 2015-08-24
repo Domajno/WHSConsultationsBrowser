@@ -205,3 +205,26 @@ span.regio {
 	width: 25%;
 	margin-top: 6em;
 }
+
+
+/* Guide */
+#guide {
+	position: absolute;
+	z-index: 1000;
+	margin-top: 30vh;
+	width: 100vw;
+	opacity: 0;
+	pointer-events: none;
+}
+#guide p {
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3em;
+	line-height: 1.5em;
+	letter-spacing: 1;
+	text-align: center;
+}
+#guide p.second {
+	display: none;
+}

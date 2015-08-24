@@ -8,6 +8,7 @@ window.onload = function () {
 			preloader += 1;
 		}, 400);
 
+	// Functions that manage the guide
 	var stopPreloader = function() {
 		clearInterval(interval);
 		d3.selectAll('#intro td').classed('active', true);
@@ -15,7 +16,24 @@ window.onload = function () {
 		d3.selectAll('#intro *:not(img), #intro').on('click', function() {
 			d3.select('#intro').transition().duration(600).style('opacity', 0).each('end', function(){
 				d3.select(this).style('display', 'none');
-			})
+				setTimeout(showGuide, 2000);
+			});
+		});
+	};
+	var showGuide = function() {
+		d3.select('#guide').transition().duration(600).style('opacity', 1);
+	};
+	var guideNextPage = function() {
+		d3.select('#guide').transition().duration(1000).style('opacity', 0).each('end', function(){
+				d3.selectAll('#guide p.first').style('display', 'none');
+				d3.selectAll('#guide p.second').style('display', 'block');
+				d3.select('#guide').transition().duration(1000).style('opacity', 1);
+			});
+	};
+
+	var hideGuide = function() {
+		d3.select('#guide').transition().duration(600).style('opacity', 0).each('end', function() {
+			d3.select(this).style('display', 'none');
 		});
 	};
 
@@ -87,7 +105,8 @@ window.onload = function () {
 
 		var triggerSearch = function(query) {
 
-			clearActiveTiles();			
+			clearActiveTiles();
+			guideNextPage();
 			var queryResults = queryDocuments(query, json['docs']),
 				selectedCells = [],
 				availableCells = d3.selectAll('td.a')[0],
@@ -103,6 +122,7 @@ window.onload = function () {
 			.on('click', function(queryResult){
 				
 				clearResults();
+				hideGuide();
 				d3.select('#results').classed('active', true);
 
 				var doc = json['docs'][queryResult['doc']], replacement;
@@ -116,8 +136,8 @@ window.onload = function () {
 				.html(formatTitle(doc[0]))
 				.style('opacity', 0)
 				.transition()
-				.duration(150)
-				.delay(200)
+				.duration(250)
+				.delay(300)
 				.style('opacity', 1);
 
 				// Add icons
@@ -134,8 +154,8 @@ window.onload = function () {
 				.classed('icon', true)
 				.style('opacity', 0)
 				.transition()
-				.duration(150)
-				.delay(200)
+				.duration(250)
+				.delay(300)
 				.style('opacity', 1)
 				.each(function(d) {
 					d3.select(this).classed(getClass(d), true);
@@ -155,8 +175,8 @@ window.onload = function () {
 					.text(json['header'][section])
 					.style('opacity', 0)
 					.transition()
-					.duration(150)
-					.delay(200)
+					.duration(250)
+					.delay(300)
 					.style('opacity', 1);
 
 					d3.select('#results')
@@ -164,14 +184,14 @@ window.onload = function () {
 					.html(replacement['text'])
 					.style('opacity', 0)
 					.transition()
-					.duration(150)
-					.delay(200)
+					.duration(250)
+					.delay(300)
 					.style('opacity', 1);
 
 				}
 
 				// Scroll to the top
-				setTimeout(function(){ d3.select('#results').node().scrollTop = 0; }, 160);
+				setTimeout(function(){ d3.select('#results').node().scrollTop = 0; }, 270);
 
 			}).style('background-color', function(queryResult) { 
 				return 'rgba(0, 173, 239, ' + scale(queryResult['count']) + ')';
