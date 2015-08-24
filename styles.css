@@ -91,7 +91,7 @@ body {
 
   	transition: all 1.25s ease-in-out;
 }
-#tiles td:hover {
+#tiles td:hover, #tiles td.rand {
 	background-color: #FAFAFA;
 	opacity: 0.8;
 	transition: border-radius 3s ease-in-out, opacity .05s ease-in-out;

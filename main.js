@@ -100,6 +100,16 @@ window.onload = function () {
 		return i < 5 ? 'in' : ( i < 11 ? 'out' : ( i < 28 ? 'group' : ( i < 37 ? 'doc' : 'regio' ) ) ) ;
 	}
 
+	// Add random activities
+	setInterval(function(a) {
+			if (d3.select('#labels').classed('hyperactive')) 
+				return; 
+			var selection = d3.selectAll('#tiles td:not(.a)')[0],
+				tile = d3.select(selection[Math.floor(Math.random() * selection.length)]);
+				tile.classed('rand', true);
+				setTimeout(function(){ tile.classed('rand', false); }, Math.random() * 400);
+		}, 2000);
+
 	// Load data
 	d3.json("data.json", function(json) {
 
