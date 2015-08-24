@@ -8,7 +8,8 @@ body {
 #labels {
 	float:left;
 	height: 100vh;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 	text-align: left;
 	padding-left: 1.5em;
 }
