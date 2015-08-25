@@ -237,6 +237,13 @@ span.regio {
 }
 
 /* Buttons */
+#buttons {
+	transition: all 0.8s ease-in-out;
+}
+#buttons.hide {
+	opacity: 0;
+	pointer-events: none;
+}
 #tw {
 	position: absolute;
 	right: calc(2 * 100vw/60);

@@ -58,6 +58,7 @@ window.onload = function () {
 		.classed('out', false)
 		.style('background-color', null)
 		.on('click', null);
+		d3.select('#buttons').classed('hide', false);
 	};
 
 	var queryDocuments = function(query, documents) {
@@ -117,6 +118,8 @@ window.onload = function () {
 
 			clearActiveTiles();
 			guideNextPage();
+			d3.select('#buttons').classed('hide', true);
+
 			var queryResults = queryDocuments(query, json['docs']),
 				selectedCells = [],
 				availableCells = d3.selectAll('td.a')[0],
