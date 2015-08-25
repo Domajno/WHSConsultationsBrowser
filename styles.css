@@ -235,3 +235,19 @@ span.regio {
 #guide p.second {
 	display: none;
 }
+
+/* Buttons */
+#tw {
+	position: absolute;
+	right: calc(2 * 100vw/60);
+	bottom: calc(2 * 100vh/20);
+}
+#tw img {
+	width: 1em;
+}
+#about {
+	width: 1em;
+	position: absolute;
+	right: calc(3 * 100vw/60);
+	bottom: calc(100vh/20);
+}
