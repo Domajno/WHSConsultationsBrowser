@@ -1,39 +1,46 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>WHS Consultations Browser</title>
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-	</head>
-	<body>
-		<div id="intro">
-			<h2>Welcome to WHS Consultations Browser</h2>
-			<p>Thousands of people worldwide have shared their ideas to reduce human loss and suffering from crisis leading up to the first-ever World Humanitarian Summit convened by the United Nations. During the consultation process many documents were created which contain those ideas. WHS Consultations Browser allows you to browse this data and navigate between the documents.</p>
-			<table>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-			<a href="https://www.worldhumanitariansummit.org/" target="_blank"><img src="img/whs_logo.svg" alt="WHS"/></a>
-		</div>
-		<div id="guide">
-			<p class="first">From all the documents in the collection the most frequent two word phrases were extracted. You see them now on the left side of your screen. Go ahead and play with them to explore what are the most common topics ideas and issues.</p>
-			<p class="first">Click on one word and then on another word that will appear to the right.</p>
-			<p class="second">On the right side you see now all the documents which contain the phrase which you have just selected. The more blue the document is the more occurrences of the phrase you will find inside.</p>
-			<p class="second">Go ahead and click on one to see its content.</p>
-		</div>
-		<div style="width:28%; float:left; overflow:hidden">
-			<div id="labels"></div>
-		</div>
-		<div style="width:72%; float:right">
-			<div id="tiles">
-				<div id="results"></div>
-				<table></table>
-			</div>
-		</div>
-		<script src="main.js" charset="utf-8"></script>
-	</body>
+  <head>
+    <title>WHS Consultations Browser</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="description" content="WHS Consultations Browser allows you to visually browse World Humanitarian Summit consultations data">
+    <meta name="keywords" content="World Humanitarian Summit,data,documents,visualization">
+    <meta name="author" content="Dominik Cygalski">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="intro">
+      <h2>Welcome to WHS Consultations Browser</h2>
+      <p>Thousands of people worldwide have shared their ideas to reduce human loss and suffering from crisis leading up to the first-ever World Humanitarian Summit convened by the United Nations. During the consultation process many documents were created which contain those ideas. WHS Consultations Browser allows you to browse this data and navigate between the documents.</p>
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <a href="https://www.worldhumanitariansummit.org/" target="_blank"><img src="img/whs_logo.svg" alt="WHS"/></a>
+    </div>
+    <div id="guide">
+      <p class="first">From all the documents in the collection the most frequent two word phrases were extracted. You see them now on the left side of your screen. Go ahead and play with them to explore what are the most common topics ideas and issues.</p>
+      <p class="first">Click on one word and then on another word that will appear to the right.</p>
+      <p class="second">On the right side you see now all the documents which contain the phrase which you have just selected. The more blue the document is the more occurrences of the phrase you will find inside.</p>
+      <p class="second">Go ahead and click on one to see its content.</p>
+    </div>
+    <div style="width:28%; float:left; overflow:hidden">
+      <div id="labels"></div>
+    </div>
+    <div style="width:72%; float:right">
+      <div id="tiles">
+        <div id="results"></div>
+        <table></table>
+      </div>
+    </div>
+    <script src="main.js" charset="utf-8"></script>
+  </body>
 </html>
