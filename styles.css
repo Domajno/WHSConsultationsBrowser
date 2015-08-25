@@ -251,7 +251,8 @@ span.regio {
   position: absolute;
   z-index: 1000;
   margin-top: 26vh;
-  width: 100vw;
+  width: 33vw;
+  left: 33vw;
   opacity: 0;
   pointer-events: none;
 
@@ -260,6 +261,9 @@ span.regio {
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;  
 }
+#about p {
+  width: 100%;
+ }
 #about.active {
   opacity: 1;
   pointer-events: all;

@@ -151,7 +151,6 @@ window.onload = function() {
             clearActiveTiles();
             guideNextPage();
 
-            d3.select('#about').classed('active', false);
             d3.select('#buttons').classed('hide', true);
 
             var queryResults = queryDocuments(query, json['docs']),
@@ -260,6 +259,7 @@ window.onload = function() {
             d3.selectAll('#labels div').classed('active', false);
             d3.select(this.parentElement).classed('active', !active);
             d3.select('#labels').classed('active', !active);
+            d3.select('#about').classed('active', false);
 
             if (!active) {
 
