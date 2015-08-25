@@ -90,11 +90,18 @@ body {
 	border-radius: 2px;
 	color: #f2f2f2;
 
+	-webkit-transition: all 1.25s ease-in-out;
+    -moz-transition: all 1.25s ease-in-out;
+    -o-transition: all 1.25s ease-in-out;
   	transition: all 1.25s ease-in-out;
 }
 #tiles td:hover, #tiles td.rand {
 	background-color: #FAFAFA;
 	opacity: 0.8;
+
+	-webkit-transition: border-radius 3s ease-in-out, opacity .05s ease-in-out;
+    -moz-transition: border-radius 3s ease-in-out, opacity .05s ease-in-out;
+    -o-transition: border-radius 3s ease-in-out, opacity .05s ease-in-out;
 	transition: border-radius 3s ease-in-out, opacity .05s ease-in-out;
 }
 #tiles td.active, #intro td.active {
@@ -238,7 +245,11 @@ span.regio {
 
 /* Buttons */
 #buttons {
-	transition: all 0.8s ease-in-out;
+	-webkit-transition: opacity 0.7s ease-in-out;
+    -moz-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+	transition: opacity 0.7s ease-in-out;
+	opacity: 0.95;
 }
 #buttons.hide {
 	opacity: 0;

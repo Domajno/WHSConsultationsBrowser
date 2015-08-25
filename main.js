@@ -18,6 +18,7 @@ window.onload = function () {
 				d3.select(this).style('display', 'none');
 				setTimeout(showGuide, 2000);
 			});
+			d3.select('#buttons').classed('hide', false);
 		});
 	};
 	var showGuide = function() {
