@@ -83,7 +83,7 @@ body {
 	float: right;
 }
 #tiles td, #intro td {
-	height: calc(100vh/20 - 2px);
+	height: calc(100vh/20 - 0.5vh);
 	width: calc(100vw/38);
 	background-color: #f2f2f2;
 	opacity: 0.5;
@@ -107,18 +107,24 @@ body {
 
 
 /* Results */
-#results {
+#results-wrapper {
 	width: 33vw;
 	position: absolute;
-	z-index: 1;
-	height: 100vh;
+	top: 0;
+	left: 27vw;
 	margin-left: 5em;
-	overflow-y: auto;
-	text-align: justify;
+	overflow: hidden;
 	z-index: -10;
 }
-#results.active {
+#results-wrapper.active {
 	z-index: 10;
+}
+#results {
+	width: 33vw;
+	height: 100vh;
+	overflow-y: auto;
+	text-align: justify;
+	padding-right: 100px;
 }
 #results h2 a {
 	text-transform: uppercase;

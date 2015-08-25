@@ -46,7 +46,7 @@ window.onload = function () {
 		.each('end', function() {
 			d3.select(this).remove();
 			if (deactivate === true) {
-				d3.selectAll('#results').classed('active', false);
+				d3.selectAll('#results, #results-wrapper').classed('active', false);
 			}
 		});
 	};
@@ -133,7 +133,7 @@ window.onload = function () {
 				
 				clearResults();
 				hideGuide();
-				d3.select('#results').classed('active', true);
+				d3.select('#results, #results-wrapper').classed('active', true);
 
 				var doc = json['docs'][queryResult['doc']], replacement;
 
