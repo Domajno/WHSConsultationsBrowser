@@ -30,7 +30,7 @@ window.onload = function() {
         d3.select('#guide').transition().duration(600).style('opacity', 1);
     };
     var guideNextPage = function() {
-        if (d3.select('#guide').selectAll('.second').style('display')==='block') {
+        if (d3.select('#guide').selectAll('.second').style('display') === 'block') {
             return;
         }
         d3.select('#guide').transition().duration(1000).style('opacity', 0).each('end', function() {
@@ -118,7 +118,7 @@ window.onload = function() {
 
     // Return url that searches for the title in WHS website
     var formatSearch = function(title) {
-        return 'https://www.worldhumanitariansummit.org/search/apachesolr_search/' + 
+        return 'https://www.worldhumanitariansummit.org/search/apachesolr_search/' +
             encodeURIComponent(title.replace(/(-|_)/g, ' ').replace(/\.(docx|pdf|doc|txt)/gi, ''));
     }
 
@@ -162,7 +162,6 @@ window.onload = function() {
                 scale = d3.scale.linear().domain([1, 6]).range([0.3, 0.95]).clamp(true);
 
             while (selectedCells.length < queryResults.length) {
-                // Max 140 cells available with current settings!
                 selectedCells.push(availableCells.splice(Math.floor(Math.random() * (availableCells.length - 26)) + 13, 1)[0]);
             }
             d3.selectAll(selectedCells)
@@ -249,49 +248,64 @@ window.onload = function() {
                 });
         };
 
-        var divs = d3.select('#labels').selectAll('span').data(
-            d3.set(json['bigrams'].map(function(d) {
+        // Create div element for each bigram
+        var bigrams = d3.set(json['bigrams'].map(function(d) {
                 return d[0];
-            })).values().sort()
-        ).enter().append('div');
-        divs.append('span').on('click', function() {
+            })).values().sort(),
+            divs = d3.select('#labels')
+            .selectAll('span')
+            .data(bigrams)
+            .enter()
+            .append('div');
 
-            // Add active class to selected text
-            var active = d3.select(this.parentElement).classed('active');
+        // Add span with the first word of the bigram
+        divs.append('span')
+            .text(function(d) {
+                return d;
+            })
+            .on('click', function() {
 
-            d3.selectAll('#labels div').classed('active', false);
-            d3.select(this.parentElement).classed('active', !active);
-            d3.select('#labels').classed('active', !active);
-            d3.select('#about').classed('active', false);
+                // Add active class to selected text
+                var active = d3.select(this.parentElement).classed('active');
 
-            if (!active) {
+                d3.selectAll('#labels div').classed('active', false);
+                d3.select(this.parentElement).classed('active', !active);
+                d3.select('#labels').classed('active', !active);
+                d3.select('#about').classed('active', false);
 
-                d3.select('#labels').selectAll('ul').classed('active', false);
-                d3.select(this.parentElement).select('ul').classed('active', true);
+                if (!active) {
+                    d3.select('#labels').selectAll('ul').classed('active', false);
+                    d3.select(this.parentElement).select('ul').classed('active', true);
+                } else {
+                    d3.select('#labels').selectAll('ul').classed('active', false);
+                    d3.select(this.parentElement.parentElement).classed('right', false);
+                    d3.select('#labels').classed('hyperactive', false);
+                    d3.select('#labels').selectAll('ul').classed('hyperactive', false);
+                    d3.select('#labels').selectAll('li').classed('hyperactive', false);
+                    clearResults(true);
+                    clearActiveTiles();
+                }
+            });
 
-            } else {
-                d3.select('#labels').selectAll('ul').classed('active', false);
-                d3.select(this.parentElement.parentElement).classed('right', false);
-                d3.select('#labels').classed('hyperactive', false);
-                d3.select('#labels').selectAll('ul').classed('hyperactive', false);
-                d3.select('#labels').selectAll('li').classed('hyperactive', false);
-                clearResults(true);
-                clearActiveTiles();
-            }
-
-
-        }).text(function(d) {
-            return d;
-        });
+        // Add list with the second words of the bigrams
         divs.append('ul').each(function(text) {
 
+            // Find all bigrams that share same first word
             var corresponding = json['bigrams'].reduce(function(a, b) {
                 if (b[0] === text)
                     a.push(b[1]);
                 return a;
             }, []);
 
-            d3.select(this.parentElement).select('ul').selectAll('li').data(corresponding.sort()).enter().append('li')
+            d3.select(this.parentElement)
+                .select('ul')
+                .selectAll('li')
+                .data(corresponding.sort())
+                .enter()
+                .append('li')
+                .text(function(d) {
+                    return d;
+                })
                 .on('click', function() {
                     // Add active class to selected text
                     var active = d3.select(this).classed('hyperactive');
@@ -309,10 +323,6 @@ window.onload = function() {
                         clearResults(true);
                         clearActiveTiles();
                     }
-
-                })
-                .text(function(d) {
-                    return d;
                 });
         });
 
@@ -331,7 +341,7 @@ window.onload = function() {
             return i > 23 && i < 37
         });
 
-
+        // Stop preloader now - data is downloaded and page is initialized
         stopPreloader();
     });
 };
