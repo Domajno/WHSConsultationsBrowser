@@ -30,6 +30,9 @@ window.onload = function() {
         d3.select('#guide').transition().duration(600).style('opacity', 1);
     };
     var guideNextPage = function() {
+        if (d3.select('#guide').selectAll('.second').style('display')==='block') {
+            return;
+        }
         d3.select('#guide').transition().duration(1000).style('opacity', 0).each('end', function() {
             d3.selectAll('#guide p.first').style('display', 'none');
             d3.selectAll('#guide p.second').style('display', 'block');
