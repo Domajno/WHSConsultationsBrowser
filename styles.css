@@ -12,6 +12,9 @@ body a {
 ::-webkit-scrollbar {
   display: none;
 }
+#too-small {
+  display: none;
+}
 
 /* Left side with words */
 #labels {
@@ -295,4 +298,33 @@ span.regio {
   right: calc(3 * 100vw/60);
   bottom: calc(100vh/20);
   cursor: pointer;
+}
+
+@media screen and (max-width:1200px) {
+  #labels div, #labels span, #labels li {
+    opacity: 0.9;
+    font-size: 0.5em;
+    letter-spacing: 3px;
+    padding: 1.7em;
+  }
+  #labels ul {
+    left: 18em;
+  }
+  #labels {
+    padding-left: 0.5em;
+  }
+  body {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width:900px) {
+  body * {
+    display: none;
+  }
+  #too-small {
+    display: block;
+    text-align: center;
+    margin-top: 50vh;
+  }
 }
