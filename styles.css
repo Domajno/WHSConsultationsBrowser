@@ -250,7 +250,7 @@ span.regio {
 #about {
   position: absolute;
   z-index: 1000;
-  margin-top: 26vh;
+  margin-top: 10vh;
   width: 33vw;
   left: 33vw;
   opacity: 0;
